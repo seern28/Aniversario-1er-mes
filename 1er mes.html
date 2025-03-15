@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regalo de Aniversario</title>
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            position: relative;
+        }
+        .message {
+            font-size: 1.5em;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            animation: blink 1.5s infinite alternate;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            position: absolute;
+            top: 10%;
+        }
+        @keyframes blink {
+            0% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        .heart {
+            width: 250px; /* Reducción del tamaño del corazón */
+            height: 250px; /* Reducción del tamaño del corazón */
+            background-color: red;
+            transform: rotate(-45deg);
+            box-shadow: 0 0 40px red;
+            animation: heartbeat 1s infinite;
+            position: absolute;
+            top: 35%; /* Ajuste para que el corazón esté más abajo */
+            z-index: 1; /* El corazón tiene un z-index bajo */
+        }
+        .heart:before,
+        .heart:after {
+            content: "";
+            width: 250px; /* Reducción del tamaño del corazón */
+            height: 250px; /* Reducción del tamaño del corazón */
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .heart:before {
+            top: -125px;
+            left: 0;
+        }
+        .heart:after {
+            left: 125px;
+            top: 0;
+        }
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1) rotate(-45deg); }
+            50% { transform: scale(1.1) rotate(-45deg); }
+        }
+        .envelope {
+            width: 300px;
+            height: 220px;
+            background: #fff;
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            overflow: hidden;
+            transition: 0.5s;
+            border-radius: 15px; /* Añado bordes redondeados */
+            z-index: 2; /* Aseguramos que la carta esté por encima del corazón */
+        }
+        .envelope:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: #ccc;
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+        }
+        .letter {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            transition: 0.5s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-style: italic;
+            padding: 15px;
+            box-sizing: border-box;
+            text-align: center;
+            font-size: 1.2em; /* Reducción del tamaño de la letra */
+            overflow-y: auto; /* Habilitar el scroll vertical */
+            max-height: 100%; /* Limita la altura al tamaño de la carta */
+        }
+        .envelope.open .letter {
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="message">Presiona sobre la carta para ver el mensaje mi chocolatita</div>
+    <div class="heart"></div>
+    <div class="envelope" onclick="this.classList.toggle('open')">
+        <div class="letter">
+             Gracias por nuestro primer mes estar a tu lado me hace muy feliz. Espero podamos continuar en nuestro camino de vida juntos el cuál deseamos y cumplir nuestros objetivos dentro de él, TE AMO MI PRINCESA CHOCOLATITA, Airyn Rodriguez ❤️. Atte: Pocho.
+        </div>
+    </div>
+</body>
+</html>
